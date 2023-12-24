@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {ThemeAtom} from "../theme";
 import {useAtomValue} from "jotai";
 
@@ -8,7 +8,7 @@ export function MainContainer(props: React.PropsWithChildren) {
 
   document.body.style.margin = "0";
   document.body.style.height = "100vh"
-  document.body.style.background = theme[theme.current].background;
+  useEffect(() => {document.body.style.background = theme[theme.current].background}, [theme]);
 
   const styles: React.CSSProperties = {
     padding: '10px 20px',
