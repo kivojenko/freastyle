@@ -1,7 +1,7 @@
 import {Theme, ThemeType} from "./ThemeTypes";
 
 export const defaultTheme: Theme = {
-  current: localStorage.getItem("theme") as ThemeType ?? "light",
+  current: (localStorage.getItem("theme") as ThemeType) ?? "light",
   light: {
     primary: "#2893EC",
     secondary: "#F47DB7",
@@ -18,4 +18,4 @@ export const defaultTheme: Theme = {
     text: "#EDF4FD",
     background: "#000205"
   }
-}
+};

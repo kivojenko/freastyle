@@ -1,2 +1,2 @@
-export * from "./ThemeTypes"
-export * from "./ThemeProvider"
+export * from "./ThemeTypes";
+export * from "./ThemeProvider";

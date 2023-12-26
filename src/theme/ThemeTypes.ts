@@ -1,4 +1,4 @@
-export type ColorVariant = "primary" | "secondary" | "accent" | "none"
+export type ColorVariant = "primary" | "secondary" | "accent" | "none";
 
 export interface ThemeProps {
   colorVariant: ColorVariant;
@@ -16,7 +16,7 @@ export interface ColorTheme {
 export type ThemeType = "light" | "dark";
 
 export interface Theme {
-  current: ThemeType,
+  current: ThemeType;
   light: ColorTheme;
   dark: ColorTheme;
 }

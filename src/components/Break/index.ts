@@ -1,1 +1,1 @@
-export * from "./Break"
+export * from "./Break";

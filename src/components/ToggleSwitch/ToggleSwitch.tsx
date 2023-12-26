@@ -1,5 +1,6 @@
-import React, {useState, ChangeEvent} from 'react';
-import "./toggle-switch.css"
+import React, {ChangeEvent, useState} from "react";
+
+import "./toggle-switch.css";
 
 interface ToggleProps {
   onChange?: (isChecked: boolean) => void;
@@ -17,9 +18,11 @@ export function ToggleSwitch(props: ToggleProps) {
 
   return (
     <label className="switch">
-      <input type="checkbox"
-             checked={isChecked}
-             onChange={handleToggleChange}/>
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={handleToggleChange}
+      />
       <span className="slider round"></span>
     </label>
   );
