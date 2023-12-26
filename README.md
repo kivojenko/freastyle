@@ -26,12 +26,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Implement into your app
 
-### To make edits to the library while using it in your local app, 
+### To make edits to the library while using it in your local app,
+
 - clone this repository
 - add to your app dependencies `"react-components": "C:\{path-to-your-folder}\react-components"`
-- add to your app tsconfig.json compilerOptions 
-`
-  "baseUrl": "./",
-  "paths": {"react-components": ["C:\{path-to-your-folder}\react-components"]}`
+- add to your app tsconfig.json compilerOptions
+  `
+"baseUrl": "./",
+"paths": {"react-components": ["C:\{path-to-your-folder}\react-components"]}`
 - you do not need to run this project
-

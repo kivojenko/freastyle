@@ -1,6 +1,12 @@
 import React from "react";
+import {
+  Break,
+  Label,
+  MainContainer,
+  ThemeSwitch,
+  ToggleSwitch
+} from "./components";
 import "./App.css";
-import { Break, Label, MainContainer, ThemeSwitch, ToggleSwitch } from "./components";
 
 function App() {
   return (

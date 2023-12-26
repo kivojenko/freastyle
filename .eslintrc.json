@@ -14,14 +14,11 @@
     "ecmaVersion": 12, // Allows usage of ECMAScript features up to version 12
     "sourceType": "module", // Allows usage of import/export syntax
     "ecmaFeatures": {
-      "jsx": true // Allows parsing of JSX syntax
+      "jsx": true,
+      "tsx": true // Allows parsing of JSX syntax
     }
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "import"
-  ],
+  "plugins": ["react", "@typescript-eslint", "import"],
   "rules": {
     "array-element-newline": ["error", "never"],
     "array-bracket-newline": ["error", "never"],
@@ -29,7 +26,7 @@
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", "never"],
     "react/jsx-indent": ["error", 2],
-    "indent": ["error", 2, {"SwitchCase": 1}], // Enforces 2-space indentation
+    "indent": ["error", 2, { "SwitchCase": 1 }], // Enforces 2-space indentation
     "linebreak-style": ["error", "unix"], // Enforces Unix line endings
     "quotes": ["error", "double"], // Enforces the use of double quotes
     "semi": ["error", "always"], // Enforces semicolons at the end of statements
