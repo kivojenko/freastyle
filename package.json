@@ -20,7 +20,8 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "start": "vite"
+    "start": "vite",
+    "format": "prettier --write 'src/**/*.js'"
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +42,9 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.5",
+    "prettier": "^3.1.1",
     "rollup": "^4.9.1",
     "tslib": "^2.6.2"
-  }
+  },
+  "prettier": "./.prettierrc"
 }

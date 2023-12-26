@@ -1,6 +1,6 @@
 import React from "react";
 import {useAtom} from "jotai";
-import {ThemeAtom} from "../theme";
+import {ThemeAtom} from "../../theme";
 import {ToggleSwitch} from "../ToggleSwitch";
 
 export type ThemeSwitchType = "toggle"

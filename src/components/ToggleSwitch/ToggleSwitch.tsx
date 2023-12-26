@@ -2,7 +2,7 @@ import React, {useState, ChangeEvent} from 'react';
 import "./toggle-switch.css"
 
 interface ToggleProps {
-  onChange: (isChecked: boolean) => void;
+  onChange?: (isChecked: boolean) => void;
   defaultChecked?: boolean;
 }
 

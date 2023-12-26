@@ -1,3 +1,9 @@
+export type ColorVariant = "primary" | "secondary" | "accent" | "none"
+
+export interface ThemeProps {
+  colorVariant: ColorVariant;
+}
+
 export interface ColorTheme {
   primary: string;
   secondary: string;

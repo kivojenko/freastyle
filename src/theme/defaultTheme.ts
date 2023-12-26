@@ -1,4 +1,4 @@
-import {Theme, ThemeType} from "./Theme";
+import {Theme, ThemeType} from "./ThemeTypes";
 
 export const defaultTheme: Theme = {
   current: localStorage.getItem("theme") as ThemeType ?? "light",
