@@ -1,5 +1,4 @@
-import React, {ChangeEvent, useState} from "react";
-
+import React, { ChangeEvent, useState } from "react";
 import "./toggle-switch.css";
 
 interface ToggleProps {

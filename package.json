@@ -21,7 +21,7 @@
   "scripts": {
     "build": "rollup -c",
     "start": "vite",
-    "format": "prettier --write src/**/*"
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
@@ -42,11 +42,11 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.5",
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
     "eslint": "^8.56.0",
-    "prettier": "^3.1.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.33.2",
     "rollup": "^4.9.1",
     "tslib": "^2.6.2"
-  },
-  "prettier": "./prettier.config.js"
+  }
 }

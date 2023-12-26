@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "moduleResolution": "nodeNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "target": "ESNext",
     "types": ["vite/client"],

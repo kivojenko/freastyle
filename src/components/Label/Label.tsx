@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./label.css";
 
 export function Label(props: React.PropsWithChildren) {

@@ -1,8 +1,6 @@
-import React, {useEffect} from "react";
-
-import {useAtomValue} from "jotai";
-
-import {ThemeAtom} from "../../theme";
+import React, { useEffect } from "react";
+import { useAtomValue } from "jotai";
+import { ThemeAtom } from "../../theme";
 import "./body.css";
 import "./main-container.css";
 
