@@ -11,6 +11,3 @@ root.render(
   </React.StrictMode>
 );
 
-export * from "./theme"
-export * from "./Button"
-export * from "./ToggleSwitch"
