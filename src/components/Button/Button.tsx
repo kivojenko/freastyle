@@ -1,21 +1,49 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React from "react";
+import { useAtomValue } from "jotai";
+import { TextProps, ThemeAtom, ThemeProps } from "../../theme";
+import { getColor } from "../../theme/utils";
+import { StyleButton } from "./StyleButton";
+import "./button.css";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  // Add any additional props specific to your button component
-  variant?: "primary" | "secondary";
+export interface ButtonProps
+  extends ThemeProps,
+    TextProps,
+    React.PropsWithChildren {
+  onClick?: (event: any) => void;
+  outlined?: boolean;
+  round?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ variant = "primary", ...props }) => {
-  const buttonStyles: React.CSSProperties = {
-    padding: "10px 20px",
-    backgroundColor: variant === "primary" ? "#007bff" : "#6c757d",
-    color: "#fff",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer"
-  };
+export function Button(props: ButtonProps) {
+  const theme = useAtomValue(ThemeAtom);
+  const currentTheme = theme[theme.current];
+  const colorVariant = props.colorVariant;
+  const textColorVariant = props.textColor;
 
-  return <button style={buttonStyles} {...props} />;
-};
+  let color = getColor(colorVariant, currentTheme);
+  let textColor = currentTheme[textColorVariant ?? "text"];
 
-export default Button;
+  if (colorVariant == "none" && textColorVariant == "background") {
+    color = currentTheme.text;
+    textColor = currentTheme.background;
+  }
+
+  if (colorVariant == undefined && textColorVariant == "background") {
+    color = currentTheme.backgroundAccent;
+    textColor = currentTheme.background;
+  }
+
+  return (
+    <StyleButton
+      className="button"
+      theme={theme}
+      onClick={props.onClick}
+      textColor={textColor}
+      color={color}
+      outlined={props.outlined}
+      round={props.round}
+    >
+      {props.children}
+    </StyleButton>
+  );
+}

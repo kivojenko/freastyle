@@ -5,17 +5,15 @@ import "./label.css";
 
 export function Label(props: React.PropsWithChildren) {
   const theme = useAtomValue(ThemeAtom);
+  const currentTheme = theme[theme.current];
 
   return (
     <label
       className="label"
       style={{
-        padding: "10px 20px",
         backgroundColor: "transparent",
-        color: theme[theme.current].background,
-        border: "none",
-        borderRadius: "4px",
-        cursor: "pointer"
+        color: currentTheme.text,
+        margin: `${theme.minYMargin}rem ${theme.minXMargin}rem`
       }}
     >
       {" "}

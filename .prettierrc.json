@@ -3,9 +3,10 @@
   "trailingComma": "none",
   "importOrder": [
     "^react$",
-    "<THIRD_PARTY_MODULES>",
-    "^\\..*[^(.css)]$",
-    "\\.css$"
+    "^(?!.*\\.css$|react)\\w",
+    "^(?!.*\\.css$)\\.\\.",
+    "^(?!.*\\.css$)\\.",
+    "[.css]$"
   ],
   "importOrderSeparation": false,
   "importOrderSortSpecifiers": true,

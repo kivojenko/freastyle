@@ -1,12 +1,24 @@
 import React, { ChangeEvent, useState } from "react";
+import { useAtomValue } from "jotai";
+import { ThemeAtom, ThemeProps } from "../../theme";
+import { getColor } from "../../theme/utils";
 import "./toggle-switch.css";
 
-interface ToggleProps {
+interface ToggleProps extends ThemeProps {
   onChange?: (isChecked: boolean) => void;
   defaultChecked?: boolean;
+  coloredAllTime?: boolean;
 }
 
 export function ToggleSwitch(props: ToggleProps) {
+  const theme = useAtomValue(ThemeAtom);
+  const currentTheme = theme[theme.current];
+  const colorVariant = props.colorVariant;
+  let color = getColor(colorVariant, currentTheme);
+  if (color == "transparent") {
+    color = currentTheme.backgroundAccent;
+  }
+
   const [isChecked, setChecked] = useState(props.defaultChecked ?? false);
 
   const handleToggleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,13 +28,24 @@ export function ToggleSwitch(props: ToggleProps) {
   };
 
   return (
-    <label className="switch">
+    <label
+      className="switch"
+      style={{ margin: `${theme.minYMargin}rem ${theme.minXMargin}rem` }}
+    >
       <input
         type="checkbox"
         checked={isChecked}
         onChange={handleToggleChange}
       />
-      <span className="slider round"></span>
+      <span
+        className="slider"
+        style={{
+          backgroundColor:
+            isChecked || props.coloredAllTime
+              ? color
+              : currentTheme.backgroundSecondary
+        }}
+      />
     </label>
   );
 }
