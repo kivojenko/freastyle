@@ -1,5 +1,5 @@
 import React from "react";
-import "./row.css";
+import { StyledLine } from "./StyledLine";
 
 export interface LineProps extends React.PropsWithChildren {
   direction?: "column" | "row";
@@ -8,14 +8,8 @@ export interface LineProps extends React.PropsWithChildren {
 
 export function Line(props: LineProps) {
   return (
-    <div
-      className="row"
-      style={{
-        flexDirection: props.direction ?? "row",
-        justifyContent: props.justify ?? "center"
-      }}
-    >
+    <StyledLine className="line" $s={props}>
       {props.children}
-    </div>
+    </StyledLine>
   );
 }

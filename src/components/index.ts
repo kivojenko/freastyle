@@ -1,5 +1,4 @@
-export * from "./MainContainer";
-export * from "./Button";
+export * from "../grid/MainContainer";
 export * from "./ToggleSwitch";
 export * from "./ThemeSwitch";
 export * from "./Break";

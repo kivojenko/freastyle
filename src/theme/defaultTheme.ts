@@ -8,7 +8,7 @@ export const defaultTheme: Theme = {
     accent: "#F17358",
 
     text: "#092646",
-    background: "#f0f1f6",
+    background: "#f2f3f8",
     backgroundSecondary: "#c1c3c9",
     backgroundAccent: "#a1a4ab"
   },
@@ -22,6 +22,8 @@ export const defaultTheme: Theme = {
     backgroundSecondary: "#666e7a",
     backgroundAccent: "#9ca5b4"
   },
-  minXMargin: 0.75,
-  minYMargin: 0.5
+  margin: {
+    minXMargin: 0.75,
+    minYMargin: 0.5
+  }
 };

@@ -19,6 +19,10 @@
     }
   },
   "plugins": ["react", "@typescript-eslint", "import"],
+  "ignorePatterns": [
+    "node_modules/",
+    "src/App.tsx"
+  ],
   "rules": {
     "array-element-newline": ["error", "never"],
     "array-bracket-newline": ["error", "never"],
@@ -26,21 +30,13 @@
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", "never"],
     "react/jsx-indent": ["error", 2],
-    "indent": ["error", 2, { "SwitchCase": 1 }], // Enforces 2-space indentation
+    "indent": ["error", 2, {"SwitchCase": 1}], // Enforces 2-space indentation
     "linebreak-style": ["error", "unix"], // Enforces Unix line endings
     "quotes": ["error", "double"], // Enforces the use of double quotes
     "semi": ["error", "always"], // Enforces semicolons at the end of statements
     "@typescript-eslint/explicit-module-boundary-types": "off", // Disables explicit module boundary types
     "@typescript-eslint/no-explicit-any": "off", // Disables explicit use of the 'any' type
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          ["builtin", "external", "internal", "parent", "sibling", "index"]
-        ],
-        "newlines-between": "always"
-      }
-    ]
+    "max-len": ["error", {"code": 120, "ignoreUrls": true, "ignorePattern": "App.tsx"}]
   },
   "settings": {
     "react": {

@@ -1,10 +1,13 @@
 import React, { ChangeEvent, useState } from "react";
 import { useAtomValue } from "jotai";
 import { ThemeAtom, ThemeProps } from "../../theme";
-import { getColor } from "../../theme/utils";
-import "./toggle-switch.css";
+import { getCurrentTheme } from "../../theme/utils";
+import { StyledSwitch } from "./StyledSwitch";
+import { StyledToggle } from "./StyledToggle";
+import { StyledToggleSwitchInput } from "./StyledToggleSwitchInput";
+import { getToggleStyle } from "./utils";
 
-interface ToggleProps extends ThemeProps {
+export interface ToggleProps extends ThemeProps {
   onChange?: (isChecked: boolean) => void;
   defaultChecked?: boolean;
   coloredAllTime?: boolean;
@@ -12,40 +15,25 @@ interface ToggleProps extends ThemeProps {
 
 export function ToggleSwitch(props: ToggleProps) {
   const theme = useAtomValue(ThemeAtom);
-  const currentTheme = theme[theme.current];
-  const colorVariant = props.colorVariant;
-  let color = getColor(colorVariant, currentTheme);
-  if (color == "transparent") {
-    color = currentTheme.backgroundAccent;
-  }
-
   const [isChecked, setChecked] = useState(props.defaultChecked ?? false);
 
   const handleToggleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newChecked = event.target.checked;
-    setChecked(newChecked);
-    props.onChange(newChecked);
+    setChecked(event.target.checked);
+    if (props.onChange) {
+      props.onChange(event.target.checked);
+    }
   };
 
+  const toggleStyle = getToggleStyle(props, getCurrentTheme(theme), isChecked);
+
   return (
-    <label
-      className="switch"
-      style={{ margin: `${theme.minYMargin}rem ${theme.minXMargin}rem` }}
-    >
-      <input
+    <StyledSwitch className="margin">
+      <StyledToggleSwitchInput
         type="checkbox"
         checked={isChecked}
         onChange={handleToggleChange}
       />
-      <span
-        className="slider"
-        style={{
-          backgroundColor:
-            isChecked || props.coloredAllTime
-              ? color
-              : currentTheme.backgroundSecondary
-        }}
-      />
-    </label>
+      <StyledToggle $s={toggleStyle} />
+    </StyledSwitch>
   );
 }

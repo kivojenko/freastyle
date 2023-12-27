@@ -1,5 +1,7 @@
-export type ColorVariant = "primary" | "secondary" | "accent" | "none";
+export type ColorVariant = "primary" | "secondary" | "accent" | "transparent";
 export type TextColor = "text" | "background";
+
+export type BackgroundColor = Extract<keyof ColorTheme, string>;
 
 export interface StyleProps {
   theme: Theme;
@@ -26,10 +28,14 @@ export interface ColorTheme {
 
 export type ThemeType = "light" | "dark";
 
+export interface MarginTheme {
+  minXMargin: number;
+  minYMargin: number;
+}
+
 export interface Theme {
   current: ThemeType;
   light: ColorTheme;
   dark: ColorTheme;
-  minXMargin: number;
-  minYMargin: number;
+  margin: MarginTheme;
 }
