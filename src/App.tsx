@@ -7,6 +7,7 @@ import {
   ThemeSwitch,
   ToggleSwitch
 } from "./components";
+import { Checkbox } from "./components/input/switch/Checkbox";
 import { Line } from "./grid";
 import "./App.css";
 
@@ -17,7 +18,9 @@ function App() {
     <MainContainer>
       <Line justify="end">
         <Label>Dark mode: </Label>
-        <ThemeSwitch />
+        <ThemeSwitch type="checkbox" />
+        <Label>Dark mode: </Label>
+        <ThemeSwitch type="toggle" />
       </Line>
       <Break />
       <Line direction="column">
@@ -37,6 +40,20 @@ function App() {
         </Line>
       </Line>
       <Break colorVariant="primary" />
+      <Line>
+        <Checkbox />
+        <Checkbox colorVariant="transparent" />
+        <Checkbox colorVariant="primary" />
+        <Checkbox colorVariant="secondary" />
+        <Checkbox colorVariant="accent" />
+      </Line>
+      <Line>
+        <Checkbox />
+        <Checkbox coloredAllTime colorVariant="transparent" />
+        <Checkbox coloredAllTime colorVariant="primary" />
+        <Checkbox coloredAllTime colorVariant="secondary" />
+        <Checkbox coloredAllTime colorVariant="accent" />
+      </Line>
       <Break colorVariant="secondary" />
       <Line>
         <Button>Default button</Button>

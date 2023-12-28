@@ -11,7 +11,7 @@ export function MainContainer(props: React.PropsWithChildren) {
   return (
     <ThemeProvider theme={{ ...theme }}>
       <StyledMainContainer className="main-container">
-        <StyleBody theme={theme} />
+        <StyleBody />
         {props.children}
       </StyledMainContainer>
     </ThemeProvider>

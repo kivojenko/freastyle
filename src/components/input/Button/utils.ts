@@ -1,13 +1,11 @@
-import { ColorTheme } from "../../theme";
-import { colors } from "../../theme/colors";
-import { getColor, getFocusColor } from "../../theme/utils";
+import { Theme } from "../../../theme";
+import { colors } from "../../../theme/colors";
+import { getColor, getCurrentTheme, getFocusColor } from "../../../theme/utils";
 import { ButtonProps } from "./Button";
 import { ButtonStyle } from "./StyledButton";
 
-export function getButtonStyle(
-  props: ButtonProps,
-  currentTheme: ColorTheme
-): ButtonStyle {
+export function getButtonStyle(props: ButtonProps, theme: Theme): ButtonStyle {
+  const currentTheme = getCurrentTheme(theme);
   const colorVariant = props.colorVariant;
   const textColorVariant = props.textColor;
 
@@ -32,7 +30,9 @@ export function getButtonStyle(
     backgroundColor = colors.transparent;
   }
 
-  const borderRadius = props.round ? "25px" : "4px";
+  const borderRadius = props.round
+    ? theme.borderRadiusRound
+    : theme.borderRadiusSharp;
 
   const backgroundColorHover = getFocusColor(backgroundColor);
 

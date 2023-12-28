@@ -1,17 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 import { getCurrentTheme } from "../../theme/utils";
 
+
+// prettier-ignore
 export const StyleBody = createGlobalStyle`
   :root {
     --primary-color: ${props => getCurrentTheme(props.theme).primary};
     --secondary-color: ${props => getCurrentTheme(props.theme).secondary};
     --accent-color: ${props => getCurrentTheme(props.theme).accent};
     --text-color: ${props => getCurrentTheme(props.theme).text};
+    --switch-color: ${props => getCurrentTheme(props.theme).switch};
     --background-color: ${props => getCurrentTheme(props.theme).background};
-    --background-secondary-color: ${props =>
-    getCurrentTheme(props.theme).backgroundSecondary};
-    --background-accent-color: ${props =>
-    getCurrentTheme(props.theme).backgroundAccent};
+    --background-secondary-color: ${props => getCurrentTheme(props.theme).backgroundSecondary};
+    --background-accent-color: ${props => getCurrentTheme(props.theme).backgroundAccent};
   }
 
 

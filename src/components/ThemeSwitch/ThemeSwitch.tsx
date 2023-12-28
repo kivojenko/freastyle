@@ -1,9 +1,10 @@
 import React from "react";
 import { useAtom } from "jotai";
 import { ThemeAtom } from "../../theme";
-import { ToggleSwitch } from "../ToggleSwitch";
+import { Checkbox } from "../input/switch/Checkbox";
+import { ToggleSwitch } from "../input/switch/ToggleSwitch";
 
-export type ThemeSwitchType = "toggle";
+export type ThemeSwitchType = "toggle" | "checkbox";
 
 interface ThemeSwitchProps {
   type?: ThemeSwitchType;
@@ -20,11 +21,20 @@ export function ThemeSwitch(props: ThemeSwitchProps) {
   }
 
   switch (props.type) {
+    case "checkbox":
+      return (
+        <Checkbox
+          onChange={onChange}
+          checked={theme.current == "dark"}
+          defaultChecked={theme.current == "dark"}
+        />
+      );
     case "toggle":
     default:
       return (
         <ToggleSwitch
           onChange={onChange}
+          checked={theme.current == "dark"}
           defaultChecked={theme.current == "dark"}
         />
       );
