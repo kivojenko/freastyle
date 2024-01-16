@@ -1,5 +1,17 @@
 import { ExecutionContext } from "styled-components";
-import { getColorTheme } from "./utils";
+import { getColorTheme } from "./colorUtils";
+
+export function stSwitchSize(p: ExecutionContext): string {
+  return `${p.theme.switch.size}rem`;
+}
+
+export function stSwitchToggleSize(p: ExecutionContext): string {
+  return `${p.theme.switch.toggleSize}rem`;
+}
+
+export function stBorderRadiusSharp(p: ExecutionContext): string {
+  return `${p.theme.borderRadiusSharp}rem`;
+}
 
 export function stMinXMargin(p: ExecutionContext): string {
   return `${p.theme.margin.minXMargin}rem`;
@@ -55,4 +67,8 @@ export function stBackgroundSecondaryColor(p: ExecutionContext): string {
 
 export function stBackgroundAccentColor(p: ExecutionContext): string {
   return getColorTheme(p.theme).backgroundAccent;
+}
+
+export function stBorderWidth(p: ExecutionContext): string {
+  return `${p.theme.borderWidth}rem`;
 }

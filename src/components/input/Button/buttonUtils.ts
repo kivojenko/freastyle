@@ -1,13 +1,16 @@
-import { useAtomValue } from "jotai/index";
-import { ThemeAtom } from "../../../theme";
-import { colors } from "../../../theme/colors";
-import { getColor, getCurrentTheme, getFocusColor } from "../../../theme/utils";
+import {
+  getColor,
+  getCurrentTheme,
+  getHoverColor,
+  getTheme
+} from "../../../theme/colorUtils";
+import { frsColors } from "../../../theme/frsColors";
 import { ButtonProps } from "./Button";
 import { ButtonStyle } from "./StyledButton";
 
 export function getButtonStyle(props: ButtonProps): ButtonStyle {
-  const theme = useAtomValue(ThemeAtom);
-  const currentTheme = getCurrentTheme(theme);
+  const theme = getTheme();
+  const currentTheme = getCurrentTheme();
   const colorVariant = props.colorVariant;
   const textColorVariant = props.textColor;
 
@@ -22,21 +25,21 @@ export function getButtonStyle(props: ButtonProps): ButtonStyle {
   }
 
   let textColor = currentTheme[textColorVariant ?? "text"];
-  let borderColor = colors.transparent;
-  let borderColorHover = colors.transparent;
+  let borderColor = frsColors.transparent;
+  let borderColorHover = frsColors.transparent;
 
   if (props.outlined) {
     textColor = backgroundColor;
     borderColor = backgroundColor;
     borderColorHover = backgroundColor;
-    backgroundColor = colors.transparent;
+    backgroundColor = frsColors.transparent;
   }
 
   const borderRadius = props.round
     ? theme.borderRadiusRound
-    : theme.borderRadiusSharp;
+    : theme.borderRadiusSharp + "rem";
 
-  const backgroundColorHover = getFocusColor(backgroundColor);
+  const backgroundColorHover = getHoverColor(backgroundColor);
 
   return {
     backgroundColor,

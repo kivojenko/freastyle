@@ -1,13 +1,16 @@
-import { ColorTheme } from "../../../../theme/types/subThemes";
-import { getColor, getFocusColor } from "../../../../theme/utils";
+import {
+  getColor,
+  getCurrentTheme,
+  getHoverColor
+} from "../../../../theme/colorUtils";
 import { SwitchProps } from "../SwitchProps";
 import { CheckboxStyleProps } from "./StyledCheckbox";
 
 export function getToggleStyle(
   props: SwitchProps,
-  currentTheme: ColorTheme,
   isChecked: boolean
 ): CheckboxStyleProps {
+  const currentTheme = getCurrentTheme();
   let color = getColor(props.colorVariant);
   if (color == "transparent") {
     color = currentTheme.backgroundAccent;
@@ -17,7 +20,7 @@ export function getToggleStyle(
     isChecked || props.coloredAllTime
       ? color
       : currentTheme.backgroundSecondary;
-  const backgroundColorHover = getFocusColor(backgroundColor);
+  const backgroundColorHover = getHoverColor(backgroundColor);
 
   return { backgroundColor, backgroundColorHover };
 }

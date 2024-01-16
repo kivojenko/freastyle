@@ -1,16 +1,19 @@
-import { colors } from "../../../../theme/colors";
-import { ColorTheme } from "../../../../theme/types/subThemes";
-import { getColor, getFocusColor } from "../../../../theme/utils";
+import {
+  getColor,
+  getCurrentTheme,
+  getHoverColor
+} from "../../../../theme/colorUtils";
+import { frsColors } from "../../../../theme/frsColors";
 import { SwitchProps } from "../SwitchProps";
-import { ToggleStyleProps } from "./StyledToggleSwitchInput";
+import { ToggleStyleProps } from "./StyledToggleSwitch";
 
 export function getToggleStyle(
   props: SwitchProps,
-  currentTheme: ColorTheme,
   isChecked: boolean
 ): ToggleStyleProps {
+  const currentTheme = getCurrentTheme();
   let color = getColor(props.colorVariant);
-  if (color == colors.transparent) {
+  if (color == frsColors.transparent) {
     color = currentTheme.backgroundAccent;
   }
 
@@ -18,7 +21,7 @@ export function getToggleStyle(
     isChecked || props.coloredAllTime
       ? color
       : currentTheme.backgroundSecondary;
-  const backgroundColorHover = getFocusColor(backgroundColor);
+  const backgroundColorHover = getHoverColor(backgroundColor);
 
   return { backgroundColor, backgroundColorHover };
 }

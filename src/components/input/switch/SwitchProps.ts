@@ -1,4 +1,4 @@
-import { ThemeProps } from "../../../theme/types/subThemes";
+import { ThemeProps } from "../../../theme/types/ThemeProps";
 
 export interface SwitchProps extends ThemeProps {
   onChange?: (isChecked: boolean) => void;

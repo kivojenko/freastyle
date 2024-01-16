@@ -6,20 +6,11 @@ export interface ToggleStyleProps {
   backgroundColorHover: string;
 }
 
-export const StyledToggleSwitchInput = styled.input<{ $s: ToggleStyleProps }>`
-  appearance: none;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  width: ${p => p.theme.switch.size * 2 + "rem"};
-  height: ${p => p.theme.switch.size + "rem"};
-  border-radius: 34px;
+export const StyledToggleSwitch = styled.input<{ $s: ToggleStyleProps }>`
   background-color: ${p => p.$s.backgroundColor};
-  -webkit-transition: ${stActionTransition};
-  transition: ${stActionTransition};
+
 
   &:before {
-    -webkit-transition: ${stActionTransition};
     transition: ${stActionTransition};
     position: relative;
     content: "";

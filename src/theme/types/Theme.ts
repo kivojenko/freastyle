@@ -1,11 +1,11 @@
-import {
-  ColorTheme,
-  MarginTheme,
-  PaddingTheme,
-  SwitchTheme,
-  ThemeType,
-  TransitionTheme
-} from "./subThemes";
+import { ColorTheme } from "./subThemes/ColorTheme";
+import { HoverTheme } from "./subThemes/HoverTheme";
+import { MarginTheme } from "./subThemes/MarginTheme";
+import { PaddingTheme } from "./subThemes/PaddingTheme";
+import { SwitchTheme } from "./subThemes/SwitchTheme";
+import { TransitionTheme } from "./subThemes/TransitionTheme";
+
+export type ThemeType = "light" | "dark";
 
 export interface Theme {
   current: ThemeType;
@@ -18,7 +18,10 @@ export interface Theme {
   padding: PaddingTheme;
 
   transition: TransitionTheme;
+  hover: HoverTheme;
 
   borderRadiusRound: string;
-  borderRadiusSharp: string;
+  borderRadiusSharp: number;
+
+  borderWidth: number;
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import { useAtomValue } from "jotai";
 import { ThemeProvider } from "styled-components";
+import { StyleBody } from "../../css/StyleBody";
 import { ThemeAtom } from "../../theme";
-import { StyleBody } from "./StyleBody";
 import { StyledMainContainer } from "./StyledMainContainer";
 
 export function MainContainer(props: React.PropsWithChildren) {

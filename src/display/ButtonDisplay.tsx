@@ -1,6 +1,5 @@
 import React from "react";
-import { Break, Button } from "../components";
-import { Checkbox } from "../components/input/switch/Checkbox";
+import { Break, Button, Checkbox } from "../components";
 import { Line } from "../grid";
 
 export function ButtonDisplay() {

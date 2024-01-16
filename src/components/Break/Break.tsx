@@ -1,10 +1,12 @@
 import React from "react";
-import { ThemeProps } from "../../theme";
-import { getColor } from "../../theme/utils";
+import { getColor } from "../../theme/colorUtils";
+import { ThemeProps } from "../../theme/types/ThemeProps";
 import { StyledBreak } from "./StyledBreak";
 
 export function Break(props: ThemeProps) {
   const backgroundColor = getColor(props.colorVariant);
 
-  return <StyledBreak className="margin-Y" $s={{ backgroundColor }} />;
+  return (
+    <StyledBreak className="frs-break frs-margin-y" $s={{ backgroundColor }} />
+  );
 }

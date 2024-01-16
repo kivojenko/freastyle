@@ -1,8 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { getCurrentTheme } from "../../../../theme/utils";
 import { SwitchProps } from "../SwitchProps";
-import { StyledToggleSwitchInput } from "./StyledToggleSwitchInput";
-import { getToggleStyle } from "./utils";
+import { StyledToggleSwitch } from "./StyledToggleSwitch";
+import { getToggleStyle } from "./toggleSwitchUtils";
 
 export function ToggleSwitch(props: SwitchProps) {
   const [isChecked, setIsChecked] = useState(
@@ -25,11 +24,11 @@ export function ToggleSwitch(props: SwitchProps) {
     setChecked(event.target.checked);
   }
 
-  const toggleStyle = getToggleStyle(props, getCurrentTheme(), isChecked);
+  const toggleStyle = getToggleStyle(props, isChecked);
 
   return (
-    <StyledToggleSwitchInput
-      className="margin"
+    <StyledToggleSwitch
+      className="frs-toggle-switch frs-margin"
       type="checkbox"
       checked={isChecked}
       onChange={handleToggleChange}

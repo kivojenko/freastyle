@@ -1,5 +1,4 @@
-import { ThemeType } from "./types/subThemes";
-import { Theme } from "./types/Theme";
+import { Theme, ThemeType } from "./types/Theme";
 
 export const defaultTheme: Theme = {
   current: (localStorage.getItem("theme") as ThemeType) ?? "light",
@@ -7,6 +6,7 @@ export const defaultTheme: Theme = {
     primary: "#3DA3F8",
     secondary: "#F47DB7",
     accent: "#F17358",
+    transparent: "transparent",
 
     text: "#092646",
     switch: "#F7F7FA",
@@ -19,6 +19,8 @@ export const defaultTheme: Theme = {
     primary: "#188AE7",
     secondary: "#D22377",
     accent: "#D03F1E",
+
+    transparent: "transparent",
 
     text: "#D0D4D9",
     switch: "#181F28",
@@ -40,9 +42,17 @@ export const defaultTheme: Theme = {
     minYMargin: 0.5
   },
   padding: {
-    minXPadding: 0.75,
-    minYPadding: 0.5
+    minXPadding: 0.85,
+    minYPadding: 0.6
   },
-  borderRadiusSharp: "4px",
-  borderRadiusRound: "25px"
+
+  hover: {
+    change: "lighten",
+    amount: 3
+  },
+
+  borderRadiusSharp: 0.3,
+  borderRadiusRound: "25px",
+
+  borderWidth: 0.1
 };

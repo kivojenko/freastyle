@@ -1,7 +1,7 @@
 import React from "react";
-import { ThemeProps } from "../../../theme/types/subThemes";
+import { ThemeProps } from "../../../theme/types/ThemeProps";
+import { getButtonStyle } from "./buttonUtils";
 import { StyledButton } from "./StyledButton";
-import { getButtonStyle } from "./utils";
 
 export interface ButtonProps extends ThemeProps, React.PropsWithChildren {
   onClick?: (event: any) => void;
@@ -13,7 +13,10 @@ export function Button(props: ButtonProps) {
   const buttonStyle = getButtonStyle(props);
 
   return (
-    <StyledButton className="margin padding" $s={buttonStyle}>
+    <StyledButton
+      className="frs-button frs-margin frs-padding"
+      $s={buttonStyle}
+    >
       {props.children}
     </StyledButton>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 import { useAtom } from "jotai";
 import { ThemeAtom } from "../../theme";
-import { Checkbox } from "../input/switch/Checkbox";
-import { ToggleSwitch } from "../input/switch/ToggleSwitch";
+import { Checkbox } from "../input/switch/Checkbox/Checkbox";
+import { ToggleSwitch } from "../input/switch/ToggleSwitch/ToggleSwitch";
 
 export type ThemeSwitchType = "toggle" | "checkbox";
 
