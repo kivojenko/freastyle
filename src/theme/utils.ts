@@ -1,14 +1,23 @@
+import { useAtomValue } from "jotai/index";
 import tinycolor from "tinycolor2";
-import { ColorTheme, ColorVariant, Theme } from "./ThemeTypes";
+import { ThemeAtom } from "./ThemeAtom";
+import { ColorTheme, ColorVariant } from "./types/subThemes";
+import { Theme } from "./types/Theme";
 
-export function getCurrentTheme(theme: Theme | any): ColorTheme {
+export function getColorTheme(theme: Theme | any): ColorTheme {
   if (!theme?.current) {
     return undefined;
   }
   return theme[theme.current];
 }
 
-export function getColor(color: ColorVariant, theme: ColorTheme): string {
+export function getCurrentTheme(): ColorTheme {
+  const theme = useAtomValue(ThemeAtom);
+  return getColorTheme(theme);
+}
+
+export function getColor(color: ColorVariant): string {
+  const theme = getCurrentTheme();
   return color == "transparent"
     ? "transparent"
     : theme[color ?? "backgroundSecondary"];

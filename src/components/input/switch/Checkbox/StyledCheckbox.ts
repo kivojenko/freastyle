@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { stActionTransition } from "../../../../theme/styledComponentsUtils";
 
 export interface CheckboxStyleProps {
   backgroundColor: string;
@@ -13,7 +14,7 @@ export const StyledCheckbox = styled.input<{ $s: CheckboxStyleProps }>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  -webkit-transition: 0.4s;
+  transition: ${stActionTransition};
   border: none;
   border-radius: ${p => p.theme.borderRadiusSharp};
   background-color: ${p => p.$s.backgroundColor};

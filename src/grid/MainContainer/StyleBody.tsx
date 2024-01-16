@@ -1,18 +1,30 @@
 import { createGlobalStyle } from "styled-components";
-import { getCurrentTheme } from "../../theme/utils";
-
+import {
+  stAccentColor,
+  stBackgroundAccentColor,
+  stBackgroundColor,
+  stBackgroundSecondaryColor,
+  stMinXMargin,
+  stMinXPadding,
+  stMinYMargin,
+  stMinYPadding,
+  stPrimaryColor,
+  stSecondaryColor,
+  stSwitchColor,
+  stTextColor
+} from "../../theme/styledComponentsUtils";
 
 // prettier-ignore
 export const StyleBody = createGlobalStyle`
   :root {
-    --primary-color: ${props => getCurrentTheme(props.theme).primary};
-    --secondary-color: ${props => getCurrentTheme(props.theme).secondary};
-    --accent-color: ${props => getCurrentTheme(props.theme).accent};
-    --text-color: ${props => getCurrentTheme(props.theme).text};
-    --switch-color: ${props => getCurrentTheme(props.theme).switch};
-    --background-color: ${props => getCurrentTheme(props.theme).background};
-    --background-secondary-color: ${props => getCurrentTheme(props.theme).backgroundSecondary};
-    --background-accent-color: ${props => getCurrentTheme(props.theme).backgroundAccent};
+    --primary-color: ${stPrimaryColor};
+    --secondary-color: ${stSecondaryColor};
+    --accent-color: ${stAccentColor};
+    --text-color: ${stTextColor};
+    --switch-color: ${stSwitchColor};
+    --background-color: ${stBackgroundColor};
+    --background-secondary-color: ${stBackgroundSecondaryColor};
+    --background-accent-color: ${stBackgroundAccentColor};
   }
 
 
@@ -23,7 +35,36 @@ export const StyleBody = createGlobalStyle`
   }
 
   .margin {
-    margin: ${p =>
-    `${p.theme.margin.minYMargin}rem ${p.theme.margin.minXMargin}rem`};
+    margin-left: ${stMinXMargin};
+    margin-right: ${stMinXMargin};
+    margin-top: ${stMinYMargin};
+    margin-bottom: ${stMinYMargin};
+  }
+
+  .margin-x {
+    margin-left: ${stMinXMargin};
+    margin-right: ${stMinXMargin};
+  }
+
+  .margin-y {
+    margin-top: ${stMinYMargin};
+    margin-bottom: ${stMinYMargin};
+  }
+
+  .padding {
+    padding-left: ${stMinXPadding};
+    padding-right: ${stMinXPadding};
+    padding-top: ${stMinYPadding};
+    padding-bottom: ${stMinYPadding};
+  }
+
+  .padding-x {
+    padding-left: ${stMinXPadding};
+    padding-right: ${stMinXPadding};
+  }
+
+  .padding-y {
+    padding-top: ${stMinYPadding};
+    padding-bottom: ${stMinYPadding};
   }
 `;

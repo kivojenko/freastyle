@@ -1,24 +1,19 @@
 import React from "react";
-import { useAtomValue } from "jotai";
-import { TextProps, ThemeAtom, ThemeProps } from "../../../theme";
+import { ThemeProps } from "../../../theme/types/subThemes";
 import { StyledButton } from "./StyledButton";
 import { getButtonStyle } from "./utils";
 
-export interface ButtonProps
-  extends ThemeProps,
-    TextProps,
-    React.PropsWithChildren {
+export interface ButtonProps extends ThemeProps, React.PropsWithChildren {
   onClick?: (event: any) => void;
   outlined?: boolean;
   round?: boolean;
 }
 
 export function Button(props: ButtonProps) {
-  const theme = useAtomValue(ThemeAtom);
-  const buttonStyle = getButtonStyle(props, theme);
+  const buttonStyle = getButtonStyle(props);
 
   return (
-    <StyledButton className="margin" $s={buttonStyle}>
+    <StyledButton className="margin padding" $s={buttonStyle}>
       {props.children}
     </StyledButton>
   );

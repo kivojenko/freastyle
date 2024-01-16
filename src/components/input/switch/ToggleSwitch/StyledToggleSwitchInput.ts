@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { stActionTransition } from "../../../../theme/styledComponentsUtils";
 
 export interface ToggleStyleProps {
   backgroundColor: string;
@@ -14,8 +15,12 @@ export const StyledToggleSwitchInput = styled.input<{ $s: ToggleStyleProps }>`
   height: ${p => p.theme.switch.size + "rem"};
   border-radius: 34px;
   background-color: ${p => p.$s.backgroundColor};
+  -webkit-transition: ${stActionTransition};
+  transition: ${stActionTransition};
 
   &:before {
+    -webkit-transition: ${stActionTransition};
+    transition: ${stActionTransition};
     position: relative;
     content: "";
     height: ${p => p.theme.switch.toggleSize + "rem"};
@@ -23,8 +28,6 @@ export const StyledToggleSwitchInput = styled.input<{ $s: ToggleStyleProps }>`
     left: ${p =>
       (p.theme.switch.size - p.theme.switch.toggleSize) * 0.5 + "rem"};
     background-color: var(--switch-color);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
     border-radius: 50%;
     transform: ${p =>
       p.checked

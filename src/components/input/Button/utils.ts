@@ -1,15 +1,17 @@
-import { Theme } from "../../../theme";
+import { useAtomValue } from "jotai/index";
+import { ThemeAtom } from "../../../theme";
 import { colors } from "../../../theme/colors";
 import { getColor, getCurrentTheme, getFocusColor } from "../../../theme/utils";
 import { ButtonProps } from "./Button";
 import { ButtonStyle } from "./StyledButton";
 
-export function getButtonStyle(props: ButtonProps, theme: Theme): ButtonStyle {
+export function getButtonStyle(props: ButtonProps): ButtonStyle {
+  const theme = useAtomValue(ThemeAtom);
   const currentTheme = getCurrentTheme(theme);
   const colorVariant = props.colorVariant;
   const textColorVariant = props.textColor;
 
-  let backgroundColor = getColor(colorVariant, currentTheme);
+  let backgroundColor = getColor(colorVariant);
 
   if (textColorVariant == "background") {
     if (colorVariant == undefined) {

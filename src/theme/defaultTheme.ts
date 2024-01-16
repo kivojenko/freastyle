@@ -1,38 +1,47 @@
-import { Theme, ThemeType } from "./ThemeTypes";
+import { ThemeType } from "./types/subThemes";
+import { Theme } from "./types/Theme";
 
 export const defaultTheme: Theme = {
   current: (localStorage.getItem("theme") as ThemeType) ?? "light",
   light: {
-    primary: "#3da3f8",
+    primary: "#3DA3F8",
     secondary: "#F47DB7",
     accent: "#F17358",
 
     text: "#092646",
-    switch: "#f7f7fa",
+    switch: "#F7F7FA",
 
-    background: "#f2f3f8",
-    backgroundSecondary: "#c1c3c9",
-    backgroundAccent: "#a1a4ab"
+    background: "#F2F3F8",
+    backgroundSecondary: "#C1C3C9",
+    backgroundAccent: "#A1A4AB"
   },
   dark: {
-    primary: "#188ae7",
-    secondary: "#d22377",
-    accent: "#d03f1e",
+    primary: "#188AE7",
+    secondary: "#D22377",
+    accent: "#D03F1E",
 
-    text: "#d0d4d9",
-    switch: "#181f28",
+    text: "#D0D4D9",
+    switch: "#181F28",
 
-    background: "#27303d",
-    backgroundSecondary: "#666e7a",
-    backgroundAccent: "#9ca5b4"
+    background: "#27303D",
+    backgroundSecondary: "#666E7A",
+    backgroundAccent: "#9CA5B4"
   },
   switch: {
     size: 2,
     toggleSize: 1.4
   },
+  transition: {
+    focusTransition: 0.1,
+    actionTransition: 0.5
+  },
   margin: {
     minXMargin: 0.75,
     minYMargin: 0.5
+  },
+  padding: {
+    minXPadding: 0.75,
+    minYPadding: 0.5
   },
   borderRadiusSharp: "4px",
   borderRadiusRound: "25px"

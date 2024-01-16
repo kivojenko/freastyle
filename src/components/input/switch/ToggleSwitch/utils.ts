@@ -1,15 +1,16 @@
-import { ColorTheme } from "../../../../theme";
+import { colors } from "../../../../theme/colors";
+import { ColorTheme } from "../../../../theme/types/subThemes";
 import { getColor, getFocusColor } from "../../../../theme/utils";
-import { ToggleStyleProps } from "./StyledToggle";
-import { ToggleProps } from "./ToggleSwitch";
+import { SwitchProps } from "../SwitchProps";
+import { ToggleStyleProps } from "./StyledToggleSwitchInput";
 
 export function getToggleStyle(
-  props: ToggleProps,
+  props: SwitchProps,
   currentTheme: ColorTheme,
   isChecked: boolean
 ): ToggleStyleProps {
-  let color = getColor(props.colorVariant, currentTheme);
-  if (color == "transparent") {
+  let color = getColor(props.colorVariant);
+  if (color == colors.transparent) {
     color = currentTheme.backgroundAccent;
   }
 

@@ -1,12 +1,10 @@
 import React from "react";
-import { useAtomValue } from "jotai";
-import { ThemeAtom, ThemeProps } from "../../theme";
-import { getColor, getCurrentTheme } from "../../theme/utils";
+import { ThemeProps } from "../../theme";
+import { getColor } from "../../theme/utils";
 import { StyledBreak } from "./StyledBreak";
 
 export function Break(props: ThemeProps) {
-  const theme = useAtomValue(ThemeAtom);
-  const backgroundColor = getColor(props.colorVariant, getCurrentTheme(theme));
+  const backgroundColor = getColor(props.colorVariant);
 
-  return <StyledBreak $s={{ backgroundColor }} />;
+  return <StyledBreak className="margin-Y" $s={{ backgroundColor }} />;
 }

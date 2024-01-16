@@ -30,7 +30,15 @@
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", "never"],
     "react/jsx-indent": ["error", 2],
-    "indent": ["error", 2, {"SwitchCase": 1}], // Enforces 2-space indentation
+    "indent": [
+      "error", 2, {
+        "SwitchCase": 1,
+        "ignoredNodes": [
+          "TaggedTemplateExpression > TemplateLiteral > ArrowFunctionExpression",
+          "TaggedTemplateExpression > TemplateLiteral > ArrowFunctionExpression > BlockStatement"
+        ]
+      }
+    ], // Enforces 2-space indentation
     "linebreak-style": ["error", "unix"], // Enforces Unix line endings
     "quotes": ["error", "double"], // Enforces the use of double quotes
     "semi": ["error", "always"], // Enforces semicolons at the end of statements

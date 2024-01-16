@@ -1,18 +1,11 @@
 export type ColorVariant = "primary" | "secondary" | "accent" | "transparent";
 export type TextColor = "text" | "background";
-
 export type BackgroundColor = Extract<keyof ColorTheme, string>;
-
-export interface StyleProps {
-  theme: Theme;
-}
-
-export interface TextProps {
-  textColor?: TextColor;
-}
+export type ThemeType = "light" | "dark";
 
 export interface ThemeProps {
   colorVariant?: ColorVariant;
+  textColor?: TextColor;
 }
 
 export interface ColorTheme {
@@ -28,7 +21,10 @@ export interface ColorTheme {
   backgroundAccent: string;
 }
 
-export type ThemeType = "light" | "dark";
+export interface PaddingTheme {
+  minXPadding: number;
+  minYPadding: number;
+}
 
 export interface MarginTheme {
   minXMargin: number;
@@ -40,15 +36,7 @@ export interface SwitchTheme {
   toggleSize: number;
 }
 
-export interface Theme {
-  current: ThemeType;
-  light: ColorTheme;
-  dark: ColorTheme;
-
-  switch: SwitchTheme;
-
-  margin: MarginTheme;
-
-  borderRadiusRound: string;
-  borderRadiusSharp: string;
+export interface TransitionTheme {
+  focusTransition: number;
+  actionTransition: number;
 }

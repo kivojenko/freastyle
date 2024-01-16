@@ -9,7 +9,7 @@ export function MainContainer(props: React.PropsWithChildren) {
   const theme = useAtomValue(ThemeAtom);
 
   return (
-    <ThemeProvider theme={{ ...theme }}>
+    <ThemeProvider theme={theme}>
       <StyledMainContainer className="main-container">
         <StyleBody />
         {props.children}
